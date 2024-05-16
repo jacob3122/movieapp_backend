@@ -16,7 +16,7 @@ dotenv.config(); // Load environment variables from .env file
       imports: [ConfigModule],
       useFactory: (configService: ConfigService) => ({
         type: 'postgres',
-        host: 'dpg-cp2qbf63e1ms73f3o3dg', // Use process.env to access environment variables
+        host: 'dpg-cp2qbf63e1ms73f3o3dg-a', // Use process.env to access environment variables
         port: +5432,
         username: 'movie_app_backend_ne9u_user',
         password: 'zmKWHRQMg46CBJEld5aGNW7w75Ed9xkI',
