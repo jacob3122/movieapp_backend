@@ -21,7 +21,7 @@ export class UsersController {
   }
 
   @Get('email/:phoneNumber')
-  getUserByEmail(@Param('phNumber') phNumber: number) {
+  getUserByEmail(@Param('phNumber') phNumber: string) {
     return this.userService.getUserByPhNumber(phNumber);
   }
 

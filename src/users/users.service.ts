@@ -15,7 +15,7 @@ export class UsersService {
     return this.userRepository.save(newUser);
   }
 
-  async getUserByPhNumber(phNumber: number) {
+  async getUserByPhNumber(phNumber: string) {
     return await this.userRepository.findOne({ where: { phNumber } });
   }
 

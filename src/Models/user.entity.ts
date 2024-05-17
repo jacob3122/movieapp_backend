@@ -9,8 +9,8 @@ export class User {
   id: number;
 
   @Column({
-    name: 'Phone_Number',
+    name: 'phNumber',
     nullable: false,
   })
-  phNumber: number;
+  phNumber: string;
 }
