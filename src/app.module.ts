@@ -4,8 +4,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import entities from './Models';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { APP_INTERCEPTOR } from '@nestjs/core';
 import { UsersModule } from './users/users.module';
+import { AuthModule } from './auth/auth.module';
 import * as dotenv from 'dotenv';
+import { HeaderInterceptor } from './Interceptor/transform.interceptor';
 
 dotenv.config(); // Load environment variables from .env file
 
@@ -27,8 +30,15 @@ dotenv.config(); // Load environment variables from .env file
       inject: [ConfigService],
     }),
     UsersModule,
+    AuthModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: HeaderInterceptor,
+    },
+  ],
 })
 export class AppModule {}

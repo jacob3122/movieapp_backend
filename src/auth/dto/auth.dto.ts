@@ -5,6 +5,5 @@ export class CreateUserDto {
   @MinLength(10)
   @MaxLength(10)
   @Matches('^[0-9]+$')
-  
   phNumber: string;
 }

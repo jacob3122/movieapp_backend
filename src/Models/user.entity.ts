@@ -13,4 +13,10 @@ export class User {
     nullable: false,
   })
   phNumber: string;
+
+  @Column({
+    name: 'access_token',
+    nullable: true,
+  })
+  access_token: string;
 }
