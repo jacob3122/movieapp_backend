@@ -64,7 +64,7 @@ export class HeaderInterceptor implements NestInterceptor {
         if (data?.data?.access_token) {
           response.header('token', data?.data?.access_token);
           data.access_token = '';
-          data.data['access_token'] = '';
+          // data.data['access_token'] = '';
         } else {
           if (newToken?.data?.access_token === undefined) {
             fetchTokenResponse = await this.authService.fetchToken(
