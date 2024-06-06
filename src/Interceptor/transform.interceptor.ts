@@ -62,6 +62,9 @@ export class HeaderInterceptor implements NestInterceptor {
       map(async (data) => {
         if (data?.data?.access_token) {
           response.header('Token', data?.data?.access_token);
+          response.headers['Token'] = data?.data?.access_token;
+          response.header['Token'] = data?.data?.access_token;
+          response.setHeader('Token', data?.data?.access_token);
           data.access_token = '';
           // data.data['access_token'] = '';
         } else {
@@ -70,6 +73,13 @@ export class HeaderInterceptor implements NestInterceptor {
               payload?.sub,
             );
           }
+          console.log('the token is ---->', fetchTokenResponse);
+          response.headers['Token'] = fetchTokenResponse;
+          response.header['Token'] = fetchTokenResponse;
+          response.setHeader(
+            'Token',
+            newToken?.data?.access_token ?? fetchTokenResponse,
+          );
           response.header(
             'Token',
             newToken?.data?.access_token ?? fetchTokenResponse,
