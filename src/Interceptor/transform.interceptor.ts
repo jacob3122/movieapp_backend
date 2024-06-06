@@ -61,8 +61,7 @@ export class HeaderInterceptor implements NestInterceptor {
     return next.handle().pipe(
       map(async (data) => {
         if (data?.data?.access_token) {
-          response.header('token', data?.data?.access_token);
-          response.setHeader('Token', data?.data?.access_token);
+          response.header('Token', data?.data?.access_token);
           data.access_token = '';
           // data.data['access_token'] = '';
         } else {
@@ -72,10 +71,6 @@ export class HeaderInterceptor implements NestInterceptor {
             );
           }
           response.header(
-            'token',
-            newToken?.data?.access_token ?? fetchTokenResponse,
-          );
-          response.setHeader(
             'Token',
             newToken?.data?.access_token ?? fetchTokenResponse,
           );

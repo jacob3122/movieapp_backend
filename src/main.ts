@@ -27,6 +27,7 @@ async function bootstrap() {
     origin: true,
     allowedHeaders:
       'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept, Observe, Authorization',
+      exposedHeaders: 'Token',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     credentials: true,
   });
